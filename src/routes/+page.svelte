@@ -1,7 +1,16 @@
+<!--deep reactivity in svelte-->
 
-<!-- sevelte doesnt provide any sanitization for html strings inserted into the DOM -->
-<script>
-    let string = 'This is a test html string <b>hiii hello</b>'
+<script lang="ts">
+    let num = $state([1,2,3,4,])
+    function addNumber(){
+        num.push(num.length + 1);
+    }
+    function removeNumber(){
+        num.pop();
+    }
 </script>
 
-<p>{@html string}</p>
+
+<p>{num.join(' + ')} ...</p>
+<button onclick={addNumber}>Add Number</button>
+<button onclick={removeNumber}>Remove Number</button>
