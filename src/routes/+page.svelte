@@ -1,16 +1,6 @@
-<!--deep reactivity in svelte-->
+<!-- props in svelte-->
+ <script>
+    import Nested from './nested.svelte';
+ </script>
 
-<script lang="ts">
-    let num = $state([1,2,3,4,])
-    function addNumber(){
-        num.push(num.length + 1);
-    }
-    function removeNumber(){
-        num.pop();
-    }
-</script>
-
-
-<p>{num.join(' + ')} ...</p>
-<button onclick={addNumber}>Add Number</button>
-<button onclick={removeNumber}>Remove Number</button>
+ <Nested answer={21} question={'3 * 7'} maker = {'Shrijan'} />
