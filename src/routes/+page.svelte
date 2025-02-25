@@ -1,11 +1,15 @@
-<!-- props in svelte-->
- <script>
-    import Nested from './nested.svelte';
-    const question =  {
-        details : "3 * 7",
-        answer : " 21" ,
-        maker :'Shrijan'
-    };
- </script>
+<script>
+	let count = $state(0);
 
- <Nested  {...question}/>
+	function increment() {
+		count += 1;
+	}
+</script>
+
+<button onclick={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+{#if count > 10}
+	<p>{count} is greater than 10</p>
+{/if}
